@@ -88,7 +88,7 @@ def captcha_image(request, key, scale=1):
         image = Image.composite(fgimage, image, maskimage)
         xpos = xpos + 2 + charimage.size[0]
 
-    image = image.crop((0, 0, xpos + 1, size[1]))
+    image = image.crop((0, 0, xpos + 1, (size[1]/3)+12))
     draw = ImageDraw.Draw(image)
 
     for f in settings.noise_functions():
